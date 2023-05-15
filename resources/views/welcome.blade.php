@@ -11,7 +11,7 @@
         <h1 class="mt-5">Welcome to the api selector of PAU's application</h1>
 
         <a href="{{ route('spoonacular.index') }}" class="btn btn-primary mt-3">Ir a Spoonacular</a>
-        <a  class="btn btn-primary mt-3">Ir a Trello</a>
+        <a href="{{ route('trello.cards') }}" class="btn btn-primary mt-3">Ir a Trello</a>
     </div>
 </body>
 </html>
