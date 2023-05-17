@@ -51,6 +51,7 @@ class AuthController extends Controller
     
         // error de validación
         return back()->with('error', 'The credentials provided do not match our records.');
+        
     }    
 
     public function showRegistrationForm()
@@ -86,6 +87,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        
         $token = $request->bearerToken();
 
         if (!$token) {
@@ -109,13 +111,9 @@ class AuthController extends Controller
 
 
     public function redirectToGoogle()
-{
-    try {
+    {
         return Socialite::driver('google')->redirect();
-    } catch (\Exception $e) {
-        dd($e);
     }
-}
 
     public function handleGoogleCallback()
     {

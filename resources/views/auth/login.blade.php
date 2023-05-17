@@ -34,7 +34,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
             </div>
-            <a href="{{ url('login/google') }}" class="btn btn-danger">Iniciar sesión con Google</a>
+            <a href="{{ url('login-google') }}" class="btn btn-danger">Iniciar sesión con Google</a>
         </form>
     </div>
 
