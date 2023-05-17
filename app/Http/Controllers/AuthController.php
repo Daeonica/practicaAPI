@@ -37,11 +37,6 @@ class AuthController extends Controller
                 ];
                 $jwt = JWT::encode($payload, env('JWT_SECRET'), 'HS256');
     
-                // en el caso de buscar emitir token JWT al usuario pondria este return
-                // return response()->json([
-                //     'token' => $jwt
-                // ]);
-    
                 return redirect()->route('welcome');
             }
         } catch (\PDOException $e) {
@@ -57,43 +52,15 @@ class AuthController extends Controller
     public function showRegistrationForm()
     {
         return view('auth.register');
-    }
-
-    public function register(Request $request)
-    {
-        try {
-            $request->validate([
-                'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|confirmed',
-            ]);
-    
-            $user = new User();
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $user->password = Hash::make($request->input('password'));
-            $user->save();
-            Auth::login($user);
-    
-            return redirect()->route('selectApi');
-        } catch (\PDOException $e) {
-            // error de conexión a la base de datos
-            return redirect()->back()->with('error', 'Error: Unable to establish a connection with the database. Please check your connection.');
-        } catch (ValidationException $e) {
-            // error de validación
-            throw $e;
-        }
-    }     
+    }   
 
     public function logout(Request $request)
     {
-        
+       
         $token = $request->bearerToken();
 
         if (!$token) {
             // Token no presente por inicio con Google
-            Auth::logout();
-
             return redirect()->route('loginForm');
         }
 

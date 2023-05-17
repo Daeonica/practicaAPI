@@ -67,24 +67,23 @@ class TrelloController extends Controller
     }
 
 
-    // app/Http/Controllers/TrelloController.php
-public function updateCard(Request $request, $cardId)
-{
-    $name = $request->input('name');
-    $desc = $request->input('desc');
+    public function updateCard(Request $request, $cardId)
+    {
+        $name = $request->input('name');
+        $desc = $request->input('desc');
 
-    $client = new Client();
-    $url = "https://api.trello.com/1/cards/{$cardId}?key={$this->apiKey}&token={$this->apiToken}";
+        $client = new Client();
+        $url = "https://api.trello.com/1/cards/{$cardId}?key={$this->apiKey}&token={$this->apiToken}";
 
-    $response = $client->put($url, [
-        'form_params' => [
-            'name' => $name,
-            'desc' => $desc,
-        ],
-    ]);
+        $response = $client->put($url, [
+            'form_params' => [
+                'name' => $name,
+                'desc' => $desc,
+            ],
+        ]);
 
-    return redirect()->route('trello.cards');
-}
+        return redirect()->route('trello.cards');
+    }
 
 
 
@@ -123,13 +122,10 @@ public function updateCard(Request $request, $cardId)
     {
         $client = new Client();
         $url = "https://api.trello.com/1/cards/{$cardId}?key={$this->apiKey}&token={$this->apiToken}";
-    
+
         $response = $client->get($url);
         $card = json_decode($response->getBody(), true);
-    
+
         return view('trello.edit', compact('card'));
     }
-    
-
-
 }

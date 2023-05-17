@@ -40,8 +40,7 @@ Route::get('/google-callback', function () {
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('loginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+
 
 
 // Ruta para mostrar la vista de bienvenida
