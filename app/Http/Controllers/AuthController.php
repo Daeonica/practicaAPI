@@ -109,9 +109,13 @@ class AuthController extends Controller
 
 
     public function redirectToGoogle()
-    {
+{
+    try {
         return Socialite::driver('google')->redirect();
+    } catch (\Exception $e) {
+        dd($e);
     }
+}
 
     public function handleGoogleCallback()
     {
