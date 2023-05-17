@@ -1,6 +1,12 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
 
-@section('content')
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
 
 <div class="container">
     <h1>Create Card</h1>
@@ -29,5 +35,8 @@
 
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
+    <a href="{{ route('trello.cards') }}" class="btn btn-primary mt-3">Ir a Trello</a>
+
 </div>
-@endsection
+    
+</body>

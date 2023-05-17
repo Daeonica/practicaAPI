@@ -57,7 +57,7 @@
         <form class="mt-4" action="{{ route('spoonacular.random') }}" method="GET"> 
             <div class="d-flex">
                 <button type="submit" class="btn btn-primary">Get Random Recipe</button>
-                <a href="{{ route('welcome') }}" class="btn btn-secondary ml-2">Volver a Welcome</a>
+                <a href="{{ route ('welcome') }}" class="btn btn-secondary ml-2">Volver a Welcome</a>
             </div>
         </form>
     </div>

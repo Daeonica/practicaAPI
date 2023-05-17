@@ -8,7 +8,7 @@
     <div class="container">
         <h1 class="mt-4">Trello Cards</h1>
         <div class="mb-4">
-            <a href="{{ url('/') }}" class="btn btn-primary">Back to Welcome</a>
+            <a href="{{ route ('welcome') }}" class="btn btn-primary">Back to Welcome</a>
             <a href="{{ route('trello.createCardForm') }}" class="btn btn-success">Create Card</a>
         </div>
         <div class="row">

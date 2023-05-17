@@ -23,6 +23,9 @@ Route::get('/delete-card/{id}', [TrelloController::class, 'deleteCard'])->name('
 Route::get('/trello/{cardId}/edit', [TrelloController::class, 'editCardForm'])->name('trello.editCardForm');
 Route::put('/trello/{cardId}/update', [TrelloController::class, 'updateCard'])->name('trello.updateCard');
 
+//GOOGLE
+Route::get('/auth/google', [AuthController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
 
 
 
